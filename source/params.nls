@@ -1,0 +1,22 @@
+perc_leader = 0.1
+perc_male_female = 0.4805
+perc-child = 0.1498 
+perc-adults = 0.8708; 
+
+speed-child 0.3889
+speed-min-adult 1.4778 
+speed-max-adult 1.5083
+speed-min-elder 1.2528 
+speed-max-elder 1.3194
+
+mass-mean-child-male 40 
+mass-std-child-male 4
+
+mass-mean-child-fema 35 
+mass-std-child-fema 4
+
+mass-mean-adult 57.7 
+mass-std-adult 4
+
+
+

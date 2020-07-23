@@ -1,0 +1,22 @@
+"BehaviorSpace results (NetLogo 6.0.4)"
+"crowd_evacuation.nlogo"
+"run"
+"05/25/2020 19:14:34:388 +0100"
+"min-pxcor","max-pxcor","min-pycor","max-pycor"
+"-170","170","-135","135"
+"[run number]"
+"perc-adults",
+"perc-male-female",
+"behaviour",
+"use-panic?",
+"num-survivors-per-patch",
+"use-stairs?",
+"perc-child",
+"number-fires",
+"fire-speed",
+"max-vision",
+"random-fire?",
+"threshold",
+"[steps]",
+
+"[initial & final values]"

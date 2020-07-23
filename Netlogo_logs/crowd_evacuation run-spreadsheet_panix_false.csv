@@ -1,0 +1,23 @@
+"BehaviorSpace results (NetLogo 6.0.4)"
+"crowd_evacuation.nlogo"
+"run"
+"05/25/2020 17:53:47:943 +0100"
+"min-pxcor","max-pxcor","min-pycor","max-pycor"
+"-170","170","-135","135"
+"[run number]","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1"
+"perc-adults","0.8708",,,,,,,,,,,,,,
+"perc-male-female","0.55",,,,,,,,,,,,,,
+"behaviour","smart",,,,,,,,,,,,,,
+"use-panic?","false",,,,,,,,,,,,,,
+"num-survivors-per-patch","10",,,,,,,,,,,,,,
+"use-stairs?","true",,,,,,,,,,,,,,
+"perc-child","0.15",,,,,,,,,,,,,,
+"number-fires","1",,,,,,,,,,,,,,
+"fire-speed","10",,,,,,,,,,,,,,
+"max-vision","50",,,,,,,,,,,,,,
+"random-fire?","false",,,,,,,,,,,,,,
+"threshold","60",,,,,,,,,,,,,,
+"[steps]","1000","1000","1000","1000","1000","1000","1000","1000","1000","1000","1000","1000","1000","1000","1000"
+
+"[initial & final values]","female-escapees","female-fire-deaths","female-stampede-deaths","male-escapees","male-fire-deaths","male-stampede-deaths","child-escapees","child-fire-deaths","child-stampede-deaths","adult-escapees","adult-fire-deaths","adult-stampede-deaths","elderly-escapees","elderly-fire-deaths","elderly-stampede-deaths"
+,"6424","759","0","5840","675","0","0","1416","0","10654","16","0","1610","2","0"

@@ -1,0 +1,7 @@
+"BehaviorSpace results (NetLogo 6.0.4)"
+"crowd_evacuation.nlogo"
+"run"
+"05/25/2020 19:04:44:022 +0100"
+"min-pxcor","max-pxcor","min-pycor","max-pycor"
+"-170","170","-135","135"
+"[run number]","perc-adults","perc-male-female","behaviour","use-panic?","num-survivors-per-patch","use-stairs?","perc-child","number-fires","fire-speed","max-vision","random-fire?","threshold","[step]","female-escapees","female-fire-deaths","female-stampede-deaths","male-escapees","male-fire-deaths","male-stampede-deaths","child-escapees","child-fire-deaths","child-stampede-deaths","adult-escapees","adult-fire-deaths","adult-stampede-deaths","elderly-escapees","elderly-fire-deaths","elderly-stampede-deaths"

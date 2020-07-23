@@ -1,0 +1,23 @@
+"BehaviorSpace results (NetLogo 6.0.4)"
+"crowd_evacuation.nlogo"
+"run"
+"05/21/2020 17:48:48:355 +0100"
+"min-pxcor","max-pxcor","min-pycor","max-pycor"
+"-170","170","-135","135"
+"[run number]","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","2","2","2","2","2","2","2","2","2","2","2","2","2","2","2"
+"perc-adults","0.8708",,,,,,,,,,,,,,,"0.8708",,,,,,,,,,,,,,
+"perc-male-female","0.55",,,,,,,,,,,,,,,"0.55",,,,,,,,,,,,,,
+"behaviour","smart",,,,,,,,,,,,,,,"smart",,,,,,,,,,,,,,
+"use-panic?","true",,,,,,,,,,,,,,,"true",,,,,,,,,,,,,,
+"num-survivors-per-patch","10",,,,,,,,,,,,,,,"10",,,,,,,,,,,,,,
+"use-stairs?","true",,,,,,,,,,,,,,,"true",,,,,,,,,,,,,,
+"perc-child","0.15",,,,,,,,,,,,,,,"0.15",,,,,,,,,,,,,,
+"number-fires","1",,,,,,,,,,,,,,,"1",,,,,,,,,,,,,,
+"fire-speed","10",,,,,,,,,,,,,,,"10",,,,,,,,,,,,,,
+"max-vision","40",,,,,,,,,,,,,,,"40",,,,,,,,,,,,,,
+"random-fire?","true",,,,,,,,,,,,,,,"true",,,,,,,,,,,,,,
+"threshold","60",,,,,,,,,,,,,,,"80",,,,,,,,,,,,,,
+"[steps]","1000","1000","1000","1000","1000","1000","1000","1000","1000","1000","1000","1000","1000","1000","1000","1000","1000","1000","1000","1000","1000","1000","1000","1000","1000","1000","1000","1000","1000","1000"
+
+"[initial & final values]","female-escapees","female-fire-deaths","female-stampede-deaths","male-escapees","male-fire-deaths","male-stampede-deaths","child-escapees","child-fire-deaths","child-stampede-deaths","adult-escapees","adult-fire-deaths","adult-stampede-deaths","elderly-escapees","elderly-fire-deaths","elderly-stampede-deaths","female-escapees","female-fire-deaths","female-stampede-deaths","male-escapees","male-fire-deaths","male-stampede-deaths","child-escapees","child-fire-deaths","child-stampede-deaths","adult-escapees","adult-fire-deaths","adult-stampede-deaths","elderly-escapees","elderly-fire-deaths","elderly-stampede-deaths"
+,"6044","840","44","5551","823","36","81","993","80","10013","577","0","1501","93","0","5633","1199","44","5234","1102","41","38","781","85","9439","1326","0","1390","194","0"
