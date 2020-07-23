@@ -38,6 +38,8 @@ globals [
   speed-panic2-set
   speed-panic3-set
 
+  workload-door-radius-set
+
 
   ; counter for statistics
   blue-escapees
@@ -130,9 +132,29 @@ survivors-own [
   leader .    ; set agent to be a leader
   age-years
 
-  recompute-exit ; flag to forge agent to recompute the exits
+  recompute-exit ; flag to force agent to recompute the exits except the nearest
 ]
 
+
+;--------------------------------------------
+; door have some paramenters
+;--------------------------------------------
+doors-own [
+
+  current-workload
+
+]
+
+;--------------------------------------------
+; compute door workload
+;--------------------------------------------
+to compute-door-workload
+
+   ask doors [
+    set current-workload count turtles in-radius workload-door-radius-set
+   ]
+
+end
 
 ;--------------------------------------------
 ; load those setpoints parameters
@@ -168,6 +190,8 @@ to load-variables
   set speed-base-set 0.3889
   set speed-panic2-set 1.8056
   set speed-panic3-set 2.5
+
+  set workload-door-radius-set 10
 end
 
 
@@ -226,17 +250,6 @@ to setup
 
   ]
 
-
-  ; if random fire is set, try to seek a gray area and deploy it
-  ;if random-fire? [
-  ;  set origin patch random-xcor random-ycor
-  ;  while [ [ pcolor ] of origin = black ] [
-  ;    set origin one-of patches
-  ;  ]
-  ;]
-  ;ask origin [
-  ;  draw-rectangle pxcor pycor 5 5 orange ; plot the fire
-  ;]
 
   ; ask turtles to compute their distance to the fire
   ask patches [set distancefire distancexy 0 135]
@@ -798,7 +811,7 @@ end
 ;--------------------------------------------
 ; behaviour reroute exit ( all aggent have full knowlegde
 ;--------------------------------------------
-to reroutw-exit
+to reroute-exit
   ask survivors [
 
   ]
