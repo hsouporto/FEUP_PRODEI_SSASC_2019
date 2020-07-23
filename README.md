@@ -35,4 +35,4 @@ only the most important were put on user direct control.
 To speed things, change speed.
 
 ## ACKNOWLEDGES
-Based on the work of shingkid with addons such as follow the leader, re-routing exit workload, multiple random fires, fire speed according material
+Based on the work of shingkid with addons such as follow the leader, re-routing exit workload, multiple random fires, fire speed according material and formulation of agent healt
