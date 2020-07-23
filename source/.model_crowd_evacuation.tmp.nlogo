@@ -39,6 +39,7 @@ globals [
   speed-panic3-set
 
   workload-door-radius-set
+  max-workload-set
 
 
   ; counter for statistics
@@ -152,9 +153,18 @@ to compute-door-workload
 
    ask doors [
     set current-workload count turtles in-radius workload-door-radius-set
+
+    ; accees if any
+    ifelse current-workload > max-workload-set
+    []
+    []
+
    ]
 
 end
+
+
+
 
 ;--------------------------------------------
 ; load those setpoints parameters
@@ -191,7 +201,8 @@ to load-variables
   set speed-panic2-set 1.8056
   set speed-panic3-set 2.5
 
-  set workload-door-radius-set 10
+  set workload-door-radius-set 10 ; set the radius to cou nt for nuber of turtles
+  set max-workload-set 50 ; set the maximum number at time
 end
 
 

@@ -10,13 +10,22 @@ Agent will start to move to exits and escape from spreading fire
 
 ## Parameters
 * Fire speed
-* Adults/child percentage
+* Number of fires
 * Panic behaviour active
 * Strategy to be used (agent behaviour)
 * Random fire of fixed position
 * max number survivors per patch
 * threshold for survivor health control
 * max vision for each agent (draw from normal distribution with max limit)
+
+## Hardcoded parameters
+* Male/Female distribution
+* Child/Adult/Eldery distribution
+* Child speed
+* Adult Speed
+* Eldery speed
+* Panic speeds
+
 
 ## Notes
 
