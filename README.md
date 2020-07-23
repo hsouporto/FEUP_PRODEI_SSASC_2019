@@ -1,5 +1,11 @@
 ## Crowd Evacuation Simulation
 
+## WHAT IS IT?
+
+This model simulates the evacuation of a large crowded stadium triggered by a fire event. The user can select several strategies, define new speeds and number of exist to simulate different environments conditions.
+
+![image info](./images/framework_image.png)
+
 ## How to run
 * Run the setup to setup the arena and all agents
 * Press go to issue one step
