@@ -1,5 +1,7 @@
 ## Crowd Evacuation Simulation
 
+![image info](./images/framework_image.png)
+
 ## How to run
 * Run the setup to setup the arena and all agents
 * Press go to issue one step
