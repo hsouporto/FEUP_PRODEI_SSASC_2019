@@ -154,7 +154,7 @@ to compute-door-workload
    ask doors [
     set current-workload count turtles in-radius workload-door-radius-set
 
-    ; accees if any
+    ; accees if any door is in workload (if so force agent to select another
     ifelse current-workload > max-workload-set
     []
     []
@@ -307,6 +307,7 @@ to go
   if behaviour = "full" [move-normal]
   if behaviour = "follow" [ follow-crowd ] ; else option
   if behaviour = "leader" [ follow-leader ] ; else option
+  if behaviour = "route" [ door-router ] ; else option
 
 
 
@@ -822,10 +823,8 @@ end
 ;--------------------------------------------
 ; behaviour reroute exit ( all aggent have full knowlegde
 ;--------------------------------------------
-to reroute-exit
-  ask survivors [
+to door-router
 
-  ]
 end
 
 ;--------------------------------------------
@@ -1506,7 +1505,7 @@ CHOOSER
 550
 behaviour
 behaviour
-"full" "follow" "leader"
+"full" "follow" "leader" "route"
 0
 
 MONITOR

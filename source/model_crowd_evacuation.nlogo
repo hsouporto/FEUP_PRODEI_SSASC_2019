@@ -307,6 +307,7 @@ to go
   if behaviour = "full" [move-normal]
   if behaviour = "follow" [ follow-crowd ] ; else option
   if behaviour = "leader" [ follow-leader ] ; else option
+  if behaviour = "route" [ door-router ] ; else option
 
 
 
@@ -822,10 +823,181 @@ end
 ;--------------------------------------------
 ; behaviour reroute exit ( all aggent have full knowlegde
 ;--------------------------------------------
-to reroute-exit
+to door-router
   ask survivors [
 
-  ]
+    ; all turtles try to find the exit independent of being leader
+    let next-patch 0
+    ifelse any? patches in-radius vision with [any? doors-here] [ ; looking firts for door if I can see in my radius of vision
+          set goal min-one-of doors [distance myself]
+          ifelse goal = door 14450 [set next-patch min-one-of neighbors [distance1]] [
+            ifelse goal = door 14451 [set next-patch min-one-of neighbors [distance2]] [
+              ifelse goal = door 14452 [set next-patch min-one-of neighbors [distance3]] [
+                ifelse goal = door 14453 [set next-patch min-one-of neighbors [distance4]] [
+                  ifelse goal = door 14454 [set next-patch min-one-of neighbors [distance5]] [
+                    ifelse goal = door 14455 [set next-patch min-one-of neighbors [distance6]] [
+                      ifelse goal = door 14456 [set next-patch min-one-of neighbors [distance7]] [
+                        ifelse goal = door 14457 [set next-patch min-one-of neighbors [distance8]] [
+                          ifelse goal = door 14458 [set next-patch min-one-of neighbors [distance9]] [
+                            ifelse goal = door 14459 [set next-patch min-one-of neighbors [distance10]] []]]]]]]]]]
+
+
+          while [ [pcolor] of next-patch != grey] [
+            ask next-patch [
+              set distance1 10000000
+              set distance2 10000000
+              set distance3 10000000
+              set distance4 10000000
+              set distance5 10000000
+              set distance6 10000000
+              set distance7 10000000
+              set distance8 10000000
+              set distance9 10000000
+              set distance10 10000000
+            ]
+            ifelse goal = door 14450 [set next-patch min-one-of neighbors [distance1]] [
+              ifelse goal = door 14451 [set next-patch min-one-of neighbors [distance2]] [
+                ifelse goal = door 14452 [set next-patch min-one-of neighbors [distance3]] [
+                  ifelse goal = door 14453 [set next-patch min-one-of neighbors [distance4]] [
+                    ifelse goal = door 14454 [set next-patch min-one-of neighbors [distance5]] [
+                      ifelse goal = door 14455 [set next-patch min-one-of neighbors [distance6]] [
+                        ifelse goal = door 14456 [set next-patch min-one-of neighbors [distance7]] [
+                          ifelse goal = door 14457 [set next-patch min-one-of neighbors [distance8]] [
+                            ifelse goal = door 14458 [set next-patch min-one-of neighbors [distance9]] [
+                              ifelse goal = door 14459 [set next-patch min-one-of neighbors [distance10]] []]]]]]]]]]
+
+          ]
+   ][
+
+      ; If agent is the leader force the selection nearest exit directly independent of distance
+      ifelse leader = 1[
+        set next-patch 0
+        ifelse goal = door 14450 [set next-patch min-one-of neighbors [distance1]] [
+          ifelse goal = door 14451 [set next-patch min-one-of neighbors [distance2]] [
+            ifelse goal = door 14452 [set next-patch min-one-of neighbors [distance3]] [
+              ifelse goal = door 14453 [set next-patch min-one-of neighbors [distance4]] [
+                ifelse goal = door 14454 [set next-patch min-one-of neighbors [distance5]] [
+                  ifelse goal = door 14455 [set next-patch min-one-of neighbors [distance6]] [
+                    ifelse goal = door 14456 [set next-patch min-one-of neighbors [distance7]] [
+                      ifelse goal = door 14457 [set next-patch min-one-of neighbors [distance8]] [
+                        ifelse goal = door 14458 [set next-patch min-one-of neighbors [distance9]] [
+                          ifelse goal = door 14459 [set next-patch min-one-of neighbors [distance10]] []]]]]]]]]]
+        repeat speed [
+         ; set intial diatcne to infinity
+          while [ [pcolor] of next-patch != grey] [
+            ask next-patch [
+              set distance1 10000000
+              set distance2 10000000
+              set distance3 10000000
+              set distance4 10000000
+              set distance5 10000000
+              set distance6 10000000
+              set distance7 10000000
+              set distance8 10000000
+              set distance9 10000000
+              set distance10 10000000
+            ]
+        ; recompute the distance
+        ifelse goal = door 14450 [set next-patch min-one-of neighbors [distance1]] [
+          ifelse goal = door 14451 [set next-patch min-one-of neighbors [distance2]] [
+            ifelse goal = door 14452 [set next-patch min-one-of neighbors [distance3]] [
+              ifelse goal = door 14453 [set next-patch min-one-of neighbors [distance4]] [
+                ifelse goal = door 14454 [set next-patch min-one-of neighbors [distance5]] [
+                  ifelse goal = door 14455 [set next-patch min-one-of neighbors [distance6]] [
+                    ifelse goal = door 14456 [set next-patch min-one-of neighbors [distance7]] [
+                      ifelse goal = door 14457 [set next-patch min-one-of neighbors [distance8]] [
+                        ifelse goal = door 14458 [set next-patch min-one-of neighbors [distance9]] [
+                          ifelse goal = door 14459 [set next-patch min-one-of neighbors [distance10]] []]]]]]]]]]
+          ]
+
+      ]
+      ][
+
+      ; See if i can move to nex patch, fire, crowded
+      ifelse is-patch? patch-at-heading-and-distance (180 + heading) vision and is-patch? patch-at-heading-and-distance (90 + heading) vision and is-patch? patch-at-heading-and-distance (270 + heading) vision [
+        ifelse [pcolor] of patch-ahead vision = orange or [pcolor] of patch-at-heading-and-distance (180 + heading) vision = orange or [pcolor] of patch-at-heading-and-distance (90 + heading) vision = orange or [pcolor] of patch-at-heading-and-distance (270 + heading) vision = orange [
+          set next-patch max-one-of neighbors [distancefire]
+          while [ [pcolor] of next-patch != grey] [
+            ask next-patch [set distancefire 0]
+            set next-patch max-one-of neighbors [distancefire]
+          ]
+          if not patch-overcrowded? next-patch [ move-to next-patch ] ; not overcrowded, move
+        ][
+          ; If they are not the leader, then follow leader if its in is range , other just follow the crowd
+          let subset-of-turtles turtles with [ leader = 0  ]
+          ifelse any? subset-of-turtles in-radius vision with [leader = 1] ; looking firts for leader in my radius of vision
+            [ ; if so, select the closest one heading
+              if any? turtles-on neighbors [
+                let avg mean [heading] of turtles-on neighbors
+                ifelse avg <= 90 [set heading 90][
+                  ifelse avg <= 180 [set heading 180][
+                    ifelse avg <= 270 [set heading 270][
+                      set heading 0
+                    ]
+                  ]
+                ]
+
+                if [pcolor] of patch-ahead 1 = gray [fd 1]
+              ]
+            ]
+            [   ; if no leader turle was found, follow the heading twost the majority (dicrete directions only)
+              if any? turtles-on neighbors [
+                let avg mean [heading] of turtles-on neighbors
+                ifelse avg <= 90 [set heading 90][
+                  ifelse avg <= 180 [set heading 180][
+                    ifelse avg <= 270 [set heading 270][
+                      set heading 0
+                    ]
+                  ]
+                ]
+
+                if [pcolor] of patch-ahead 1 = gray [fd 1]
+              ]
+          ]
+         ]
+
+
+
+
+      ][]
+
+
+    ]
+    ]
+
+    ; update reporters
+    if any? doors-here [
+      ifelse color = blue
+      [ set blue-escapees blue-escapees + 1]
+      [ ifelse color = cyan
+        [ set cyan-escapees cyan-escapees + 1 ]
+        [ ifelse color = yellow
+          [ set yellow-escapees yellow-escapees + 1 ]
+          [ ifelse color = red
+            [ set red-escapees red-escapees + 1 ]
+            [ ifelse color = 29
+              [ set beige-escapees beige-escapees + 1 ]
+              [ set green-escapees green-escapees + 1 ]
+            ]
+          ]
+        ]
+      ]
+
+      ifelse gender = "female"
+      [ set female-escapees female-escapees + 1 ]
+      [ set male-escapees male-escapees + 1 ]
+
+      ifelse age = "child"
+      [ set child-escapees child-escapees + 1 ]
+      [ ifelse age = "adult"
+        [ set adult-escapees adult-escapees + 1 ]
+        [ set elderly-escapees elderly-escapees + 1 ]
+      ]
+      ; set agents to die
+      die
+    ]
+
+]
 end
 
 ;--------------------------------------------
@@ -1506,7 +1678,7 @@ CHOOSER
 550
 behaviour
 behaviour
-"full" "follow" "leader"
+"full" "follow" "leader" "route"
 0
 
 MONITOR
