@@ -41,3 +41,9 @@ The other can be easily defined on the script on globals
 
 
 To speed things, change speed.
+
+## Acknowledges
+
+Based o the work of shingkid with multiple fires, followed the leader, reroute exit and new path finder algorithm
+
+
