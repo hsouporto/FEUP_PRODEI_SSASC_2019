@@ -18,7 +18,7 @@ Agent will start to move to exits and escape from spreading fire
 * Fire speed
 * Number of fires
 * Panic behaviour active
-* Strategy to be used (agent behaviour)
+* Strategy to be used (agent behaviour) 4 possible strategies
 * Random fire of fixed position
 * max number survivors per patch
 * threshold for survivor health control
@@ -37,8 +37,7 @@ Agent will start to move to exits and escape from spreading fire
 
 Some many other parameters can be easily set, but to avoid a cluttered GUI environment
 only the most important were put on user direct control.
+The other can be easily defined on the script on globals
+
 
 To speed things, change speed.
-
-## ACKNOWLEDGES
-Based on the work of shingkid with addons such as follow the leader, re-routing exit workload, multiple random fires, fire speed according material and formulation of agent healt
