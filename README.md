@@ -44,6 +44,6 @@ To speed things, change speed.
 
 ## Acknowledges
 
-Based o the work of shingkid with multiple fires, followed the leader, reroute exit and new path finder algorithm
+Based o the work of shingkid with  many corrections, and addons such as multiple fires, followed the leader, reroute exit and new path finder algorithm
 
 
